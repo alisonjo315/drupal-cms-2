@@ -1,0 +1,20 @@
+# ECA does not define a schema for this plugin, which breaks tests.
+# @todo Remove this when https://www.drupal.org/i/3558523 is released.
+action.configuration.eca_config_action:
+  type: ignore
+
+# @todo Remove when https://www.drupal.org/i/3558527 is released.
+action.configuration.eca_config_list:
+  type: mapping
+  label: 'List configuration names'
+  mapping:
+    token_name:
+      type: string
+      label: 'Name of the token which should hold the list'
+    prefix:
+      type: string
+      label: 'An optional configuration prefix.'
+
+# @todo Remove when https://www.drupal.org/i/3557882 is released.
+block.settings.dashboard_optional:
+  type: ignore

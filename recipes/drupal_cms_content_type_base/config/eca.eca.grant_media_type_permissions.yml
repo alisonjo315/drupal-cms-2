@@ -1,0 +1,115 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - eca_base
+    - eca_config
+    - eca_content
+    - eca_misc
+    - eca_user
+    - modeler_api
+third_party_settings:
+  modeler_api:
+    modeler_id: bpmn_io
+    data: 'hash:a3fe5a327e7383243cf7269ccae8b417'
+    label: 'Grant media type permissions'
+    documentation: 'When a new media type is created, permissions to work with it are automatically granted to content editors.'
+    version: 1.0.0
+id: grant_media_type_permissions
+weight: 0
+events:
+  config__save_1_1:
+    plugin: 'config:save'
+    label: 'Media type created'
+    configuration:
+      config_name: media.type.
+      sync_mode: ''
+      write_mode: new
+    successors:
+      -
+        id: eca_token_set_value_197sxde
+        condition: ''
+  drupal__recipe_applied_1:
+    plugin: 'drupal:recipe_applied'
+    label: 'Content Basics recipe applied'
+    configuration:
+      recipe_base_path: drupal_cms_content_type_base
+    successors:
+      -
+        id: eca_get_bundle_list_1sg2ypl
+        condition: ''
+conditions:
+  eca_count_0v4abc8:
+    plugin: eca_count
+    label: 'List not empty?'
+    configuration:
+      negate: false
+      left: media_types
+      right: '0'
+      operator: greaterthan
+      type: numeric
+      case: false
+gateways:
+  Gateway_1y92kpu:
+    type: 0
+    successors:
+      -
+        id: eca_list_remove_0jqi9ao
+        condition: eca_count_0v4abc8
+actions:
+  eca_config_action_1p0ypjk:
+    label: 'Grant permissions'
+    plugin: eca_config_action
+    configuration:
+      action_id: 'entity_method:user.role:grantPermissions'
+      config_name: user.role.content_editor
+      data: '["create [media_type] media", "delete any [media_type] media", "edit any [media_type] media"]'
+    successors:
+      -
+        id: Gateway_1y92kpu
+        condition: ''
+  eca_switch_account_0dshb6m:
+    label: 'Temporarily become administrator'
+    plugin: eca_switch_account
+    configuration:
+      user_id: '1'
+    successors:
+      -
+        id: eca_config_action_1p0ypjk
+        condition: ''
+  eca_list_remove_0jqi9ao:
+    label: 'For each media type...'
+    plugin: eca_list_remove
+    configuration:
+      value: ''
+      token_name: media_type
+      method: first
+      index: ''
+      list_token: media_types
+    successors:
+      -
+        id: eca_switch_account_0dshb6m
+        condition: ''
+  eca_token_set_value_197sxde:
+    label: 'Rename token'
+    plugin: eca_token_set_value
+    configuration:
+      token_name: media_type
+      token_value: '[config:id]'
+      use_yaml: false
+      validate_yaml: false
+    successors:
+      -
+        id: eca_switch_account_0dshb6m
+        condition: ''
+  eca_get_bundle_list_1sg2ypl:
+    label: 'Find all media types'
+    plugin: eca_get_bundle_list
+    configuration:
+      token_name: media_types
+      type: media
+      mode: ids
+    successors:
+      -
+        id: Gateway_1y92kpu
+        condition: ''

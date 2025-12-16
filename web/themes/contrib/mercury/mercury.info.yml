@@ -1,0 +1,24 @@
+name: Mercury
+type: theme
+"base theme": false
+libraries:
+  - mercury/global
+logo: logo-dark.svg
+description: "A scalable, modern Drupal CMS prototype theme, integrating cutting-edge front-end tools and a flexible, component-based design system."
+core_version_requirement: ^11
+generator: "starterkit_theme:11.1.1"
+regions:
+  content: Content
+  header: Header
+  footer: Footer
+components:
+  namespaces:
+    mercury_theme: components
+    drupalRoot: components
+dependencies:
+  - cva:cva
+
+# Information added by Drupal.org packaging script on 2025-12-16
+version: '1.0.0-beta1'
+project: 'mercury'
+datestamp: 1765845075
