@@ -4,25 +4,43 @@ Drupal CMS is a fast-moving open source product that enables site builders to ea
 
 ## Getting started
 
-### Lando instructions
+### Using this repo with Lando
 Note: These instructions are not tested, they're just, educated guesses by Alison.
 
 1. Clone this repo.
 2. Run `lando start`
 3. Install Drupal:
-  1. To use the Starter site template:
-  ```
-  lando drush site:install --db-url=mysql://drupal11:drupal11@database/drupal11 -y
-  ```
-  2. To use the Byte site template, a big fancy site template (i.e. lots of features and content, like Umami):
-  ```
-  lando drush site:install recipes/byte --db-url=mysql://drupal11:drupal11@database/drupal11 -y
-  ```
+   1. To use the Starter site template:
+    ```
+    lando drush site:install --db-url=mysql://drupal11:drupal11@database/drupal11 -y
+    ```
+   2. To use the Byte site template, a big fancy site template (i.e. lots of features and content, like Umami):
+    ```
+    lando drush site:install recipes/byte --db-url=mysql://drupal11:drupal11@database/drupal11 -y
+    ```
 4. Go to your new site!
 
 P.S. Byte didn't work for me must now, oh well.
 
-📚 Note: The rest of this README is what came with the project.
+### Starting from scratch
+i.e. what I did to get to this point / this repo -- it's a mash-up of these ["testing non-stable Drupal CMS with ddev" instructions](https://www.drupal.org/project/cms/releases/2.0.0-alpha2) and [these Drupal CMS + lando instructions](https://docs.lando.dev/plugins/drupal/guides/drupal-cms.html):
+
+1. Start with lando "TLDR quick install" at the top of [that lando doc](https://docs.lando.dev/plugins/drupal/guides/drupal-cms.html).  🛑 Stop after `lando install`.
+2. Create project:
+  ```
+  lando composer create-project drupal/cms:2-alpha2 tmp -s alpha --no-install && cp -r tmp/. . && rm -rf tmp
+  ```
+3. More composer commands based on instructions in the [CMS alpha2 release notes](https://www.drupal.org/project/cms/releases/2.0.0-alpha2):
+  ```
+  lando composer config minimum-stability alpha
+  lando composer require --no-update drupal/drupal_cms_media:@dev
+  lando composer install
+  ```
+4. Install Drupal -- see above, step 3. Only reason I mention it here is, technically this repo contains a `settings.php` file that was created when I installed Drupal.
+
+<hr>
+
+_**📚 Note: The rest of this README is what came with the project.**_
 
 <hr>
 
