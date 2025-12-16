@@ -4,18 +4,27 @@ Drupal CMS is a fast-moving open source product that enables site builders to ea
 
 ## Getting started
 
-If you want to use [DDEV](https://ddev.com) to run Drupal CMS locally, follow these instructions:
+### Lando instructions
+Note: These instructions are not tested, they're just, educated guesses by Alison.
 
-1. Install DDEV following the [documentation](https://ddev.com/get-started/)
-2. Open the command line and `cd` to the root directory of this project
-3. Run the following commands:
-```shell
-ddev config --project-type=drupal11 --docroot=web
-ddev start
-ddev composer install
-ddev composer drupal:recipe-unpack
-ddev launch
-```
+1. Clone this repo.
+2. Run `lando start`
+3. Install Drupal:
+  1. To use the Starter site template:
+  ```
+  lando drush site:install --db-url=mysql://drupal11:drupal11@database/drupal11 -y
+  ```
+  2. To use the Byte site template, a big fancy site template (i.e. lots of features and content, like Umami):
+  ```
+  lando drush site:install recipes/byte --db-url=mysql://drupal11:drupal11@database/drupal11 -y
+  ```
+4. Go to your new site!
+
+P.S. Byte didn't work for me must now, oh well.
+
+📚 Note: The rest of this README is what came with the project.
+
+<hr>
 
 Drupal CMS has the same system requirements as Drupal core, so you can use your preferred setup to run it locally. [See the Drupal User Guide for more information](https://www.drupal.org/docs/user_guide/en/installation-chapter.html) on how to set up Drupal.
 
