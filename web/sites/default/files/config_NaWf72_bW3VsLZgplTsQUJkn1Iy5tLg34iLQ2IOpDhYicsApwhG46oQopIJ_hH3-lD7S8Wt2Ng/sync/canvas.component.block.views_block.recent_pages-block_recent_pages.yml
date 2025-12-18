@@ -1,0 +1,27 @@
+uuid: d427a989-67af-4024-8ab9-941ad0b1439e
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.recent_pages
+  module:
+    - views
+active_version: 2b92c3fb58889e26
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'views_block:recent_pages-block_recent_pages'
+        label: 'Recent pages'
+        label_display: '0'
+        provider: views
+        views_label: ''
+        items_per_page: null
+    fallback_metadata:
+      slot_definitions: null
+label: 'Recent pages'
+id: block.views_block.recent_pages-block_recent_pages
+provider: views
+source: block
+source_local_id: 'views_block:recent_pages-block_recent_pages'
+category: 'Lists (Views)'

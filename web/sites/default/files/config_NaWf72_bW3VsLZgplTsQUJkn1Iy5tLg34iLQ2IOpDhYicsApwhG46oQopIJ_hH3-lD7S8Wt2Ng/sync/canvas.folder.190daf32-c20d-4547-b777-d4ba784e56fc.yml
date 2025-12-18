@@ -1,0 +1,16 @@
+uuid: 190daf32-c20d-4547-b777-d4ba784e56fc
+langcode: en
+status: true
+dependencies: {  }
+name: Menus
+configEntityTypeId: component
+weight: 0
+items:
+  - block.system_menu_block.account
+  - block.system_menu_block.admin
+  - block.system_menu_block.content
+  - block.system_menu_block.footer
+  - block.system_menu_block.main
+  - block.system_menu_block.navigation-user-links
+  - block.system_menu_block.tools
+  - block.system_menu_block.top-tasks

@@ -1,0 +1,28 @@
+uuid: abd5409f-2e24-40d1-a0de-08b765ea3246
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.navigation-user-links
+  module:
+    - system
+active_version: ee0a3fea8873f6af
+versioned_properties:
+  active:
+    settings:
+      default_settings:
+        id: 'system_menu_block:navigation-user-links'
+        label: 'Navigation user links'
+        label_display: '0'
+        provider: system
+        level: 1
+        depth: null
+        expand_all_items: false
+    fallback_metadata:
+      slot_definitions: null
+label: 'Navigation user links'
+id: block.system_menu_block.navigation-user-links
+provider: system
+source: block
+source_local_id: 'system_menu_block:navigation-user-links'
+category: Menus
