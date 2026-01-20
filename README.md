@@ -23,7 +23,7 @@ Note: These instructions are not tested, they're just, educated guesses by Aliso
 P.S. Byte didn't work for me must now, oh well.
 
 ### Starting from scratch
-i.e. what I did to get to this point / this repo -- it's a mash-up of these ["testing non-stable Drupal CMS with ddev" instructions](https://www.drupal.org/project/cms/releases/2.0.0-alpha2) and [these Drupal CMS + lando instructions](https://docs.lando.dev/plugins/drupal/guides/drupal-cms.html):
+i.e. what I did to get to this point / this repo -- it's a mash-up of these ["testing non-stable Drupal CMS with ddev" instructions](https://www.drupal.org/project/cms/releases/2.0.0-alpha2) (Jan 20, 2026: I don't see the instructions I'm alluding to...) and [these Drupal CMS + lando instructions](https://docs.lando.dev/plugins/drupal/guides/drupal-cms.html):
 
 1. Start with lando "TLDR quick install" at the top of [that lando doc](https://docs.lando.dev/plugins/drupal/guides/drupal-cms.html).  🛑 Stop after `lando install`.
 2. Create project:
