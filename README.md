@@ -38,6 +38,19 @@ i.e. what I did to get to this point / this repo -- it's a mash-up of these ["te
   ```
 4. Install Drupal -- see above, step 3. Only reason I mention it here is, technically this repo contains a `settings.php` file that was created when I installed Drupal.
 
+### Drupal CMS 2.0.0 stable
+
+From when I did all this ^^ but with CMS 2 stable release that came out on Jan 28, 2026...
+1. Start with lando "TLDR quick install" at the top of [that lando doc](https://docs.lando.dev/plugins/drupal/guides/drupal-cms.html).  🛑 Stop after `lando start`.
+2. Create project + composer install:
+  ```
+  lando composer create-project drupal/cms tmp --no-install && cp -r tmp/. . && rm -rf tmp
+  lando composer install
+  ```
+3. Install Drupal -- see above, step 3.
+    * FYI: This time, Byte worked fine for me.
+
+
 <hr>
 
 _**📚 Note: The rest of this README is what came with the project.**_
