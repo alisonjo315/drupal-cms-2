@@ -49,8 +49,16 @@ From when I did all this ^^ but with CMS 2 stable release that came out on Jan 2
   ```
   lando composer install
   ```
-3. Install Drupal -- see ["Using this repo with Lando" above](https://github.com/alisonjo315/drupal-cms-2/blob/main/README.md#using-this-repo-with-lando), step 3.
-    * FYI: This time, Byte worked fine for me.
+3. Install Drupal:
+   1. To use the Starter site template:
+    ```
+    lando drush site:install --db-url=mysql://drupal11:drupal11@database/drupal11 -y
+    ```
+   2. To use the Byte site template, a big fancy site template (i.e. lots of features and content, like Umami):
+    ```
+    lando drush site:install recipes/byte --db-url=mysql://drupal11:drupal11@database/drupal11 -y
+    ```
+      * FYI: Byte worked fine for me (it didn't work for me with the alpha2 release).
 
 
 <hr>
