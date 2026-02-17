@@ -45,6 +45,8 @@ There's a desktop app: https://new.drupal.org/drupal-cms/trial
 Or: From when I did all this (further up, "Starting from scratch") but with CMS 2 stable release that came out on Jan 28, 2026...
 1. Start with lando "TLDR quick install" at the top of [that lando doc](https://docs.lando.dev/plugins/drupal/guides/drupal-cms.html).  🛑 Stop after `lando start`.
 2. Create project + composer install:
+  * Note 1: When I did this with a new/clean "Pantheon Drupal 11 site" (i.e. create site in Pantheon, git clone to local, do step 1 ⬆️ here), I had to delete `composer.lock` before running the `create-project` command
+  * Note 2: After running the `create-project` command below, I created a mashup of the cms2 composer file and the pantheon composer file; **_then,_** I ran `lando composer install`.
   ```
   lando composer create-project drupal/cms tmp --no-install && cp -r tmp/. . && rm -rf tmp
   ```
