@@ -18,6 +18,10 @@ Note: These instructions are not tested, they're just, educated guesses by Aliso
     ```
     lando drush site:install recipes/byte --db-url=mysql://drupal11:drupal11@database/drupal11 -y
     ```
+    * Note from "Pantheon' attempt: This ⬆️ didn't work for me when I was trying locally.  I ended up with this instead:
+    ```
+    lando drush site:install drupal_cms_installer --db-url=mysql://drupal11:drupal11@database/drupal11 -y
+    ```
 4. Go to your new site!
 
 P.S. Byte didn't work for me must now, oh well.
